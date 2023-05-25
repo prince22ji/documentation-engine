@@ -1,36 +1,43 @@
-import * as React from "react";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import Requests from "../Requests/Requests";
 import axios from "axios";
-import frontmatter from "frontmatter";
+import CodeSnippet from "../CodeSnippet/CodeSnippet";
+import React from "react";
 
 export default function RenderMd({ children }: any) {
-
-  const [file ,setFile] = useState('')
+  const [file, setFile] = useState("");
   useEffect(() => {
-    axios
-      .get(
-        "http://localhost/readme.md",
-      )
-      .then((response) => {
-        setFile(response.data)
-        console.log(file)
-        const test = frontmatter(file,{ safeLoad: true });
-        console.log(test);
-      });
+    axios.get("http://localhost/readme.md").then((response) => {
+      setFile(response.data);
+    });
   }, []);
-  function showLog(value:any){
-console.log(value);
+  function showLog(value: any) {
+    console.log(value);
   }
   return (
     <>
-      <ReactMarkdown children={file}   components={{
-   code({node,...props}){return <Requests data={props}/>},
-    h2: ({node,...props})=><div className="container-fluid" onClick={()=>showLog({...props})} {...props}></div>,
+      <ReactMarkdown
+        children={file}
+        components={{
+          code({ node,...props }) {
+            return React.createElement(CodeSnippet,{data:props,node})
+            // return <CodeSnippet data={props}  node={node} />;
+            // return <code>{children}</code>
+          },
+          pre({node, children , ...props}){
+            return <div className="d-flex">{children}</div>
+          },
+          h2: ({ node, ...props }) => (
+            <div
+              className="container-fluid"
+              onClick={() => showLog({ ...props })}
+              {...props}
+            ></div>
+          ),
 
-    em: ({node, ...props}) => <i style={{color: 'red'}} {...props} />
-  }}></ReactMarkdown>
+          em: ({ node, ...props }) => <i style={{ color: "red" }} {...props} />,
+        }}
+      ></ReactMarkdown>
     </>
   );
 }

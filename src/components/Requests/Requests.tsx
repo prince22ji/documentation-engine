@@ -5,12 +5,12 @@ import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 import frontmatter from "frontmatter";
 import axios from "axios";
-import RenderMd from "../markdown/RenderMd";
+import RenderMd from "../Markdown/RenderMd";
 
-export default function Requests({data}:any) {
+export default function Requests ({data}:any) {
   let parsedData= {path:"",body:"",headers:"",}
   try{parsedData = JSON.parse(data.children[0])}
-  catch(error){return};
+  catch(error:any){return <><div className="warn">{error.toString()}</div></>};
   console.log(JSON.parse(data.children[0]));
   return (
     <>
@@ -58,5 +58,5 @@ export default function Requests({data}:any) {
         />
       </div>
     </>
-  );
+  )
 }

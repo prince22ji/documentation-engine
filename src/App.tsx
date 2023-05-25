@@ -4,7 +4,7 @@ import ArtistList from './components/Artists/ArtistList'
 import axios from 'axios'
 import Requests from './components/Requests/Requests'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RenderMd from './components/markdown/RenderMd'
+import RenderMd from './components/Markdown/RenderMd'
 
 
 function App() {
