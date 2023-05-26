@@ -1,0 +1,9 @@
+.side-nav-container {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.data-container {
+    overflow-y: auto !important;
+    height: 100vh !important;
+}

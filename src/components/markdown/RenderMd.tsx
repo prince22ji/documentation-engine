@@ -4,13 +4,8 @@ import axios from "axios";
 import CodeSnippet from "../CodeSnippet/CodeSnippet";
 import React from "react";
 
-export default function RenderMd({ children }: any) {
-  const [file, setFile] = useState("");
-  useEffect(() => {
-    axios.get("http://localhost/readme.md").then((response) => {
-      setFile(response.data);
-    });
-  }, []);
+export default function RenderMd({ file }: any) {
+  
   function showLog(value: any) {
     console.log(value);
   }

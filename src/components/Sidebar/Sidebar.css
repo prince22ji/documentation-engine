@@ -1,0 +1,28 @@
+.nav-list{
+    list-style: none;
+}
+.nav-list >.nav-item{
+    
+}
+.nav-list>.nav-item>.nav-link{
+    text-decoration: none;
+}
+.nav-container{
+}
+.nav-container >.title{
+    background-color: white;
+    color: var(--bs-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    position:sticky;
+    top:0
+}
+
+.nav-container >.title>span{
+
+}
+.nav-list{
+    margin-top: 4vh;
+
+
+}

@@ -21,7 +21,7 @@ export default function CodeSnippet({ data, node }: any) {
     switch (view) {
       case "code": {
         return (
-          <pre className="m-2 default">
+          <pre className="m-0 p-4 default">
             <CodeViewer data={data}></CodeViewer>
           </pre>
         );
@@ -29,7 +29,9 @@ export default function CodeSnippet({ data, node }: any) {
       case "request": {
         return (
           <>
+          <div className="p-4">
             <Requests data={data} />
+          </div>
           </>
         );
       }
@@ -37,8 +39,8 @@ export default function CodeSnippet({ data, node }: any) {
   };
   return (
     <>
-      <div className="preview-container m-2 container-fluid w-100">
-        <div className="toolbar container-fluid">
+      <div className="preview-container m-2 p-0 container-fluid w-100">
+        <div className="toolbar p-2 container-fluid">
           <div className="row">
             <div className="col-8">
               <div></div>
@@ -46,7 +48,7 @@ export default function CodeSnippet({ data, node }: any) {
             <div className="col-4 toolbar-icons-container justify-content-end d-flex">
               <div className="mx-1 d-flex">
                 <CodeIcon
-                  className="cursor-pointer"
+                  className="cursor-pointer icon"
                   onClick={() => {
                     handleViewChange("code");
                   }}
@@ -54,7 +56,7 @@ export default function CodeSnippet({ data, node }: any) {
               </div>
               <div className="mx-1 d-flex">
                 <LinkIcon
-                  className="cursor-pointer"
+                  className="cursor-pointer icon"
                   onClick={() => {
                     handleViewChange("request");
                   }}
@@ -64,7 +66,7 @@ export default function CodeSnippet({ data, node }: any) {
               </div>
               <div className="mx-1 d-flex">
                 <EditIcon
-                  className="cursor-pointer"
+                  className="cursor-pointer icon"
                   onClick={() => {
                     handleViewChange("edit");
                   }}
@@ -75,7 +77,7 @@ export default function CodeSnippet({ data, node }: any) {
             </div>
           </div>
         </div>
-        <div className="snippet container-fluid">{renderSnippet()}</div>
+        <div className="snippet container-fluid m-0 no-gutters">{renderSnippet()}</div>
       </div>
     </>
   );
