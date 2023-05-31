@@ -1,0 +1,21 @@
+.page-navs-container>.title{
+    margin:1rem;
+    font-weight: 600;
+}
+.page-navs{
+    list-style: none;
+}
+.page-nav-item{
+    margin: 1rem;
+    overflow: hidden;
+    color: black;
+}
+.page-nav-item:hover{
+    color:blue
+}
+.page-nav-item>a {
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}

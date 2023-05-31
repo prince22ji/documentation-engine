@@ -1,9 +1,9 @@
 import "./Sidebar.css";
 import { Outlet, Link } from "react-router-dom";
 
-export default function Sidebar({ navs, title }: any) {
+export default function Sidebar({ pages, title,setActive,activePage}: any) {
   function renderNavs() {
-    return navs.map((nav: any) => {
+    return pages.map((nav: any) => {
       return (
         <li className="my-1 nav-item" key={nav.code}>
           <Link className="nav-link py-2" to={nav.url}>
@@ -17,7 +17,7 @@ export default function Sidebar({ navs, title }: any) {
     <>
       <div className="container-fluid no-gutters m-0 h-100 nav-container">
         <div className="title align-items-center">
-          <span>{title || "Nav Menu"}</span>
+          <span>{title || "Pages Menu"}</span>
         </div>
         <ul className="nav-list m-0 p-0 pt-4">{renderNavs()}</ul>
       </div>

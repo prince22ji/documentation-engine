@@ -1,0 +1,7 @@
+.page-navs{
+    position: sticky;
+}
+.document-section{
+    height: 100vh;
+    overflow-y:auto ;
+}
